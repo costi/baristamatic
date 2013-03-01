@@ -17,10 +17,10 @@ describe BaristaMatic::IngredientsStorage do
             "steamed_milk"  => 10,
             "sugar"         => 10,
             "whipped_cream" => 10,
-             
           }
         }
-    })
+      }
+    )
         
   end
 

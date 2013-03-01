@@ -10,10 +10,13 @@ module BaristaMatic
     # to deal with locking of the resources of that location and updating
     # the location storage
     # I'll just go with a singleton instance for now because it's simpler
-    @location_instances = {} # singleton per location_name
+    def self.location_instances
+      @location_instances ||= {} # singleton per location_name
+    end
+
     def self.get_instance(location_name = "default_location")
-      if location_name = locations[location_name]
-        location_instances[location_name] ||= new(location[:quantities])
+      if location_config = locations[location_name]
+        location_instances[location_name] ||= new(location_config["quantities"])
       else
         raise ArgumentError, "no such storage location #{location_name}. Available locations: #{locations.keys.inspect}"
       end
