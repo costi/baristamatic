@@ -44,7 +44,7 @@ module BaristaMatic
     def parse_input(input)
       catch(:exit) do
         input.each_line do |line|
-          parse_line(line)
+          parse_line(line.chomp)
         end
       end
     end

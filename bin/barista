@@ -12,3 +12,9 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'barista_matic'
+
+machine = BaristaMatic::Machine.new
+controller = BaristaMatic::TextInputController.new(machine)
+controller.startup
+# Nifty perl-ish ARGF: file supplied as argument or stdin
+controller.parse_input(ARGF)
