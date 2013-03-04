@@ -1,5 +1,5 @@
 module BaristaMatic
-  class TextOutput
+  class TextOutputPresenter
 
     attr_reader :machine
     def initialize(machine)
@@ -7,7 +7,15 @@ module BaristaMatic
     end
 
     def startup
+      status
+    end
+
+    def status
       inventory + "\n" + menu
+    end
+
+    def print(message)
+      message
     end
 
     private
@@ -25,5 +33,6 @@ module BaristaMatic
       }
       output
     end
+
   end
 end

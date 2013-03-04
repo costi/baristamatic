@@ -26,10 +26,13 @@ module BaristaMatic
 
     # this will lock the ingredients from the storage
     def in_stock?
+      storage.in_stock?(to_hash)
+    end
+
+    def to_hash
       ingredients_hash = {}.tap do |hash| 
         ingredients.each{|ingredient| hash[ingredient.ingredient_name] = ingredient.units } 
       end
-      storage.in_stock?(ingredients_hash)
     end
 
     def human_name
