@@ -13,3 +13,5 @@ require 'bigdecimal/util' # for .to_d utility methods
 require 'drink'
 require 'recipe_ingredient'
 require 'ingredients_storage'
+require 'storage_commands/restock'
+require 'storage_commands/consume'

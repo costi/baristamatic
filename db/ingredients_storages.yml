@@ -1,0 +1,12 @@
+default_location: 
+  quantities:
+    cocoa: 10,
+    coffee: 10,
+    cream: 10,
+    decaf_coffee: 10,
+    espresso: 10,
+    foamed_milk: 10,
+    steamed_milk: 0,
+    sugar: 10,
+    whipped_cream: 10,
+

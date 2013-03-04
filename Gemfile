@@ -7,4 +7,6 @@ group :development do
   gem "pry"
 end
 
-gem 'deject'
+gem 'deject' # for simple dependency injection
+
+gem 'transaction-simple' # for storage transactions

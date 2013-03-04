@@ -3,7 +3,7 @@ module BaristaMatic
 
     Deject self # add dependency injection support
 
-    dependency(:ingredients_storage) { IngredientsStorage.get_instance("default_storage") }
+    dependency(:ingredients_storage) { IngredientsStorage.get_instance("test_storage") }
 
     attr_reader :type
     def initialize(type)
@@ -26,7 +26,10 @@ module BaristaMatic
 
     # this will lock the ingredients from the storage
     def in_stock?
-      ingredients_storage.in_stock?(ingredients)
+      ingredients_hash = {}.tap do |hash| 
+        ingredients.each{|ingredient| hash[ingredient.ingredient_name] = ingredient.units } 
+      end
+      ingredients_storage.in_stock?(ingredients_hash)
     end
 
 
@@ -34,7 +37,7 @@ module BaristaMatic
     # Example:
     # {coffee => {coffee => 3, sugar => 1, cream => 1}}
     def self.recipes
-      YAML.load_file(File.dirname(__FILE__) + '')
+      YAML.load_file(File.dirname(__FILE__) + '../db/recipes.yml')
     end
 
 

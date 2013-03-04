@@ -1,0 +1,23 @@
+coffee: 
+  coffee: 3
+  sugar: 1
+  cream: 1
+decaf_coffee:
+  decaf_coffee: 3
+  sugar: 1
+  cream: 1
+caffe_latte:
+ espress: 2
+ steamed_milk: 1
+caffe_americano:
+  espresso: 3
+caffe_mocha:
+  espress: 1
+  cocoa: 1
+  steamed_milk: 1
+  whipped_cream: 1
+cappuccino:
+  espresso: 2
+  steamed_milk: 1
+  foamed_milk: 1
+

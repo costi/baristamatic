@@ -1,6 +1,7 @@
 module BaristaMatic
   class RecipeIngredient
-    attr_reader :ingredient_name, :units
+    attr_reader :ingredient_name
+    attr_accessor :units
 
     def initialize(ingredient_name, units)
       @ingredient_name = ingredient_name

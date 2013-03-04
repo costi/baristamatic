@@ -4,7 +4,6 @@ describe BaristaMatic::Drink do
 
   subject { described_class.new("irish_coffee")}
   let(:recipes){ {"irish_coffee" => {"whiskey" => 1, "coffee" => 3}} }
-  let(:ingredients){ {"whiskey" => "1.25".to_d, "coffee" => "0.50".to_d} }
 
   before :each do
     described_class.stub(:recipes).and_return(recipes)
@@ -20,7 +19,8 @@ describe BaristaMatic::Drink do
   end
 
   it 'can tell if it is in stock' do
-    pending "TODO"
+    subject.stub(:ingredients_storage).and_return(double("Test Storage"))
+    subject.ingredients_storage.should_receive(:in_stock?).with({"whiskey" => 1, "coffee" => 3}).and_return(true)
     subject.in_stock?.should be_true
   end
 
