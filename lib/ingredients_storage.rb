@@ -63,6 +63,11 @@ module BaristaMatic
       ingredients.keys
     end
 
+    def find_all
+      ingredients.values
+    end
+
+    # returns RecipeIngredient onject, which responds to ingredient_name and units
     def find_ingredient(ingredient_name)
       ingredients[ingredient_name]
     end

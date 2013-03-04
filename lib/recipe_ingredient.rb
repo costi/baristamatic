@@ -12,15 +12,21 @@ module BaristaMatic
       unit_cost * units
     end
 
+    def human_name
+      ingredient_name.gsub("_", " ").split(/(\W)/).map(&:capitalize).join
+    end
+
     # returns a hash keyed off ingredient name, with value being cost
     # Example:
     # {sugar => 0.75} 
     def self.ingredients_costs
-      YAML.load_file(File.dirname(__FILE__) + '')
+      YAML.load_file(File.dirname(__FILE__) + '/../db/ingredients_costs.yml')
     end
 
     def unit_cost
-      self.class.ingredients_costs[ingredient_name].to_d
+      price = self.class.ingredients_costs[ingredient_name]
+      raise "Cannot find price for #{ingredient_name}" unless price
+      price.to_d
     end
   end
 end

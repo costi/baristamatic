@@ -17,5 +17,15 @@ describe BaristaMatic::RecipeIngredient do
     expect(subject.unit_cost).to eql("0.50".to_d)
   end
 
+  describe '#human_name' do
+    it 'displays "coffee" as "Coffee"' do
+      expect(subject.human_name).to eql("Coffee") 
+    end
+    it 'displays "steamed_milk" "Steamed Milk"' do
+      subject = described_class.new("steamed_milk", 3)
+      expect(subject.human_name).to eql("Steamed Milk")
+    end
+  end
+
 
 end

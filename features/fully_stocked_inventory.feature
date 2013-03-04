@@ -3,15 +3,17 @@ Feature: Inventory and available menu on application startup
   I want to see the inventory and available menu
   So I can make my choices
 
-  Given a fully stocked barista-matic
+  Scenario: Initial inventory
+  Given a fully stocked baristamatic
   When I start the machine
-  I get the following output:
-  """
+  Then I get the following output:
+    """
     Inventory:
     Cocoa,10
     Coffee,10
     Cream,10
-    Decaf Coffee,10Espresso,10
+    Decaf Coffee,10
+    Espresso,10
     Foamed Milk,10
     Steamed Milk,10
     Sugar,10
@@ -23,4 +25,10 @@ Feature: Inventory and available menu on application startup
     4,Cappuccino,$2.90,true
     5,Coffee,$2.75,true
     6,Decaf Coffee,$2.75,true
-  """
+
+    """
+  When I input the following commands:
+    """
+    2
+    q
+     """

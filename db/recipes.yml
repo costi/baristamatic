@@ -7,12 +7,12 @@ decaf_coffee:
   sugar: 1
   cream: 1
 caffe_latte:
- espress: 2
+ espresso: 2
  steamed_milk: 1
 caffe_americano:
   espresso: 3
 caffe_mocha:
-  espress: 1
+  espresso: 1
   cocoa: 1
   steamed_milk: 1
   whipped_cream: 1

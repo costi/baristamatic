@@ -11,7 +11,10 @@ require 'bigdecimal' # ingredient costs cannot be float because of precision err
 require 'bigdecimal/util' # for .to_d utility methods
 
 require 'drink'
+require 'recipe'
 require 'recipe_ingredient'
 require 'ingredients_storage'
+require 'machine'
+require 'text_output'
 require 'storage_commands/restock'
 require 'storage_commands/consume'

@@ -3,7 +3,7 @@ module BaristaMatic
 
     Deject self # add dependency injection support
 
-    dependency(:ingredients_storage) { IngredientsStorage.get_instance("test_storage") }
+    dependency(:storage) { IngredientsStorage.get_instance("default_location") }
 
     attr_reader :type
     def initialize(type)
@@ -29,19 +29,25 @@ module BaristaMatic
       ingredients_hash = {}.tap do |hash| 
         ingredients.each{|ingredient| hash[ingredient.ingredient_name] = ingredient.units } 
       end
-      ingredients_storage.in_stock?(ingredients_hash)
+      storage.in_stock?(ingredients_hash)
     end
 
+    def human_name
+      type.gsub("_", " ").split(/(\W)/).map(&:capitalize).join
+    end
+
+    def self.all
+      @all ||= recipes.keys.map do |drink_type|
+        new(drink_type)
+      end
+    end
 
     # returns hash keyed off drink_type, with ingredients and their unit amounts
     # Example:
     # {coffee => {coffee => 3, sugar => 1, cream => 1}}
     def self.recipes
-      YAML.load_file(File.dirname(__FILE__) + '../db/recipes.yml')
+      @recipes ||= YAML.load_file(File.dirname(__FILE__) + '/../db/recipes.yml')
     end
-
-
-
 
   end
 end

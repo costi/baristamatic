@@ -19,8 +19,8 @@ describe BaristaMatic::Drink do
   end
 
   it 'can tell if it is in stock' do
-    subject.stub(:ingredients_storage).and_return(double("Test Storage"))
-    subject.ingredients_storage.should_receive(:in_stock?).with({"whiskey" => 1, "coffee" => 3}).and_return(true)
+    subject.stub(:storage).and_return(double("Test Storage"))
+    subject.storage.should_receive(:in_stock?).with({"whiskey" => 1, "coffee" => 3}).and_return(true)
     subject.in_stock?.should be_true
   end
 
